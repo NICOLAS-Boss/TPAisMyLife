@@ -22,6 +22,16 @@ def login(req):
 def logout(req):
     logout(req)
 
+
+#def about(req):
+#    return render(req,'blog/about.html',{})
+
+def contacts(req):
+    return render(req,'blog/contacts.html',{})
+
+
+
+
 def new_user(req):
     if req.POST:
         form = UserCreationForm(req.POST)

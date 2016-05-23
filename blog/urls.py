@@ -10,6 +10,7 @@ router.register(r'profiles',views.ProfileViewSet)
 urlpatterns = [
         url(r'^api/', include(router.urls)),
         url(r'^$',views.main, name='main'),
+        url(r'^contacts/$',views.contacts, name='contacts'),
         url(r'^new_user/$',views.new_user,name='new_user'),
         url(r'^profile/$',views.profile_redirect,name='profile_redirect'),
         url(r'^profile/(?P<name>[a-zA-Z0-9]+)/$',views.profile, name='profile'),
