@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{263d2a35-e710-49b6-8ed8-4b1b185a61b8}</ProjectGuid>
+    <ProjectHome />
+    <StartupFile>manage.py</StartupFile>
+    <SearchPath />
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <ProjectTypeGuids>{5F0BE9CA-D677-4A4D-8806-6076C0FAAD37};{349c5851-65df-11da-9384-00065b846f21};{888888a0-9f3d-457c-b088-3a5042f75d52}</ProjectTypeGuids>
+    <LaunchProvider>Django launcher</LaunchProvider>
+    <InterpreterId />
+    <InterpreterVersion />
+    <UseIISExpress>true</UseIISExpress>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
+  <PropertyGroup>
+    <VisualStudioVersion Condition=" '$(VisualStudioVersion)' == '' ">10.0</VisualStudioVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="blog\admin.py" />
+    <Compile Include="blog\apps.py" />
+    <Compile Include="blog\forms.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="blog\migrations\__init__.py" />
+    <Compile Include="blog\models.py" />
+    <Compile Include="blog\static\app\module1.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="blog\tests.py" />
+    <Compile Include="blog\urls.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="blog\views.py" />
+    <Compile Include="blog\__init__.py" />
+    <Compile Include="manage.py" />
+    <Compile Include="TPAisMyLife\settings.py" />
+    <Compile Include="TPAisMyLife\urls.py" />
+    <Compile Include="TPAisMyLife\wsgi.py" />
+    <Compile Include="TPAisMyLife\__init__.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="blog" />
+    <Folder Include="blog\migrations" />
+    <Folder Include="blog\static\" />
+    <Folder Include="blog\static\app\" />
+    <Folder Include="blog\static\css\" />
+    <Folder Include="blog\templates\" />
+    <Folder Include="blog\templates\blog\" />
+    <Folder Include="blog\templates\registration\" />
+    <Folder Include="TPAisMyLife" />
+    <Folder Include="TPAisMyLife\media\" />
+    <Folder Include="TPAisMyLife\media\uploads\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="blog\static\css\blog.css" />
+    <Content Include="blog\templates\blog\base.html" />
+    <Content Include="blog\templates\blog\new_post.html" />
+    <Content Include="blog\templates\blog\new_user.html" />
+    <Content Include="blog\templates\blog\profile.html" />
+    <Content Include="blog\templates\registration\login.html" />
+    <Content Include="blog\templates\blog\main.html" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.Django.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:56228/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}" User="">
+        <WebProjectProperties>
+          <StartPageUrl>
+          </StartPageUrl>
+          <StartAction>CurrentPage</StartAction>
+          <AspNetDebugging>True</AspNetDebugging>
+          <SilverlightDebugging>False</SilverlightDebugging>
+          <NativeDebugging>False</NativeDebugging>
+          <SQLDebugging>False</SQLDebugging>
+          <ExternalProgram>
+          </ExternalProgram>
+          <StartExternalURL>
+          </StartExternalURL>
+          <StartCmdLineArguments>
+          </StartCmdLineArguments>
+          <StartWorkingDirectory>
+          </StartWorkingDirectory>
+          <EnableENC>True</EnableENC>
+          <AlwaysStartWebServerOnDebug>False</AlwaysStartWebServerOnDebug>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

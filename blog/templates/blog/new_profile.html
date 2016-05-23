@@ -1,0 +1,25 @@
+{% extends "blog/base.html" %}
+
+{% block basecontent %}
+<div class="container body-content">
+<h2>{{ title }}</h2>
+<div class="row">
+    <div class="col-md-6">
+      <h1>Заполните Информацию о себе</h1>
+      <form method="POST" enctype="multipart/form-data" class="post-form form-horizontal" id="add_post">{% csrf_token %}
+        <section id="loginForm">
+          {{ form.as_p}}
+        </section>
+        <button type="submit" class="save btn btn-default">Сохранить</button>
+      </form>
+    </div>
+    <div class="col-md-4">
+        <section id="socialLoginForm"></section>
+    </div>
+</div>
+</div>
+<style>
+body { padding-top: 50px; }
+</style>
+{% endblock %}
+{% load staticfiles %}

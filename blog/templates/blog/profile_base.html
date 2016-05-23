@@ -1,0 +1,15 @@
+{%extends 'blog/base.html'%}
+{%block basecontent %}
+<div class="container body-content">
+  <div class="row">
+    <div class="col-md-4">
+            {%block nav%}
+            {%endblock%}
+    </div>
+    <div class="col-md-8">
+            {%block content%}
+            {%endblock%}
+    </div>
+  </div>
+</div>
+{%endblock%}

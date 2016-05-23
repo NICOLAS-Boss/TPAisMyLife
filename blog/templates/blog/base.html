@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DarkTwit</title>
+
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'app/css/bootstrap.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+</head>
+    <body>
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a href="/" class="navbar-brand">DarkTwit</a>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        {%if user.is_authenticated%}
+                        <li><a href="/profile/{{user.username}}/">Моя страница</a></li>
+                        <li><a href="/statistics/">Статистика</a></li>
+                        {%endif%}
+                        <li><a href="/about">О проекте</a></li>
+                        <li><a href="/contact">Контакты</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        {%if user.is_authenticated%}
+                        <li><a href="{% url 'logout' %}">Выйти</a></li>
+                        {%else%}
+                        <li><a href="{% url 'login' %}">Войти</a></li>
+                        <li><a href="{% url 'new_user' %}">Регестрация</a></li>
+                        {%endif%}
+                    </ul>
+                </div>
+            </div>
+        </div>
+        {%block basecontent%}
+        {%endblock%}
+    <script src="{% static 'app/js/jquery.min.js' %}"></script>
+    <script src="{% static 'app/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'app/js/scripts.js' %}"></script>
+    </body>
+</html>

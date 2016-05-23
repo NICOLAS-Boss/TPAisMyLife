@@ -1,0 +1,18 @@
+{%extends 'blog/base.html'%}
+{%block basecontent %}
+
+<div class="col-md-12">
+  <div class="page-header">
+    <h1>
+      Статистика <small>вашей страницы</small>
+    </h1>
+  </div>
+
+<div class="col-md-6">
+{{graph|safe}}
+</div>
+</div>
+<style>
+body { padding-top: 50px; }
+</style>
+{%endblock%}
