@@ -1,27 +1,27 @@
 {%extends 'blog/profile_base.html'%}
 {%block nav%}
-    <img src="{{profile.photo.url}}" width="100%"/>
-    <h2>{{profile.name}} {{profile.surname}}</h2>
-    <h4>@{{user.get_username}}</h4>
+  <img src="{{profile.photo.url}}" width="100%"/>
+  <h2>{{profile.name}} {{profile.surname}}</h2>
+  <h4>@{{user.get_username}}</h4>
 {%endblock%}
 {%block content%}
-  <h3>{{post.title}}</h3>
-  <h5><i>автор:</i> <a href="/profile/{{post.author.username}}/">{{post.author.username}}</a></br><i> дата публикации</i> {{post.created_date}}</h5>
-  <p>{{post.text}}</p>
-  <form method="POST" action="/post/add_like/{{post.id}}/"  class="post-form form-horizontal" id="like_post">{% csrf_token %}
-      <button type="submit" class="save btn btn-default">понравилось({{likes.count}})</button>
-  </form>
-  <h4>Коментарии:</h4>
-  {%for comment in comments%}
-    <p class="text-right"><a href="/profile/{{comment.author.username}}/" >{{comment.author.username}}</a></p>
-    <p class="text-right">{{comment.text}}</p>
-  {%endfor%}
-  <form method="POST" class="post-form form-horizontal" id="add_post">{% csrf_token %}
-      {{ comment_form.text }}
-      <button type="submit" class="save btn btn-default">Добавить</button>
-  </form>
+<h3>{{post.title}}</h3>
+<h5><i>автор:</i> <a href="/profile/{{post.author.username}}/">{{post.author.username}}</a></br><i> дата публикации</i> {{post.created_date}}</h5>
+<p>{{post.text}}</p>
+<form method="POST" action="/post/add_like/{{post.id}}/"  class="post-form form-horizontal" id="like_post">{% csrf_token %}
+    <button type="submit" class="save btn btn-default">понравилось({{likes.count}})</button>
+</form>
+<h4>Коментарии:</h4>
+{%for comment in comments%}
+  <p class="text-right"><a href="/profile/{{comment.author.username}}/" >{{comment.author.username}}</a></p>
+  <p class="text-right">{{comment.text}}</p>
+{%endfor%}
+<form method="POST" class="post-form form-horizontal" id="add_post">{% csrf_token %}
+    {{ comment_form.text }}
+    <button type="submit" class="save btn btn-default">Добавить</button>
+</form>
 
-  <style>
-  body { padding-top: 70px; }
-  </style>
+<style>
+body { padding-top: 70px; }
+</style>
 {%endblock%}

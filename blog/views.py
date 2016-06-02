@@ -22,16 +22,6 @@ def login(req):
 def logout(req):
     logout(req)
 
-
-#def about(req):
-#    return render(req,'blog/about.html',{})
-
-def contacts(req):
-    return render(req,'blog/contacts.html',{})
-
-
-
-
 def new_user(req):
     if req.POST:
         form = UserCreationForm(req.POST)
@@ -151,6 +141,36 @@ class ProfileViewSet(viewsets.ModelViewSet):
 
 @login_required(login_url='/login/')
 def statistics(req):
-    bc = pygal.Bar()
-    bc.add('посещаимость',[12,1,2,3,5,8,12,32,55])
-    return render(req,'blog/statistics.html',{'graph':bc.render()})
+    bc = pygal.Pie().add('Мужчины', 30).add('Женщины', 70)
+    bc.title = "Посещаемоть"
+
+    line_chart = pygal.Bar()
+    line_chart.title = 'Посещаемость за последниее время'
+    line_chart.x_labels = map(str, range(2002, 2013))
+    line_chart.add('женщины', [None, None, 0, 16.6,   25,   31, 36.4, 45.5, 46.3, 42.8, 37.1])
+    line_chart.add('мужчины',  [None, None, None, None, None, None,    0,  3.9, 10.8, 23.8, 35.3])
+    line_chart.add('люди старше ', [85.8, 84.6, 84.7, 74.5,   66, 58.6, 54.7, 44.8, 36.2, 26.6, 20.1])
+    line_chart.add('дети',  [14.2, 15.4, 15.3,  8.9,    9, 10.4,  8.9,  5.8,  6.7,  6.8,  7.5])
+
+    from datetime import time
+    dateline = pygal.TimeLine(x_label_rotation=25)
+    dateline.add("Активность", [
+      (time(), 0),
+      (time(6), 5),
+      (time(8, 30), 12),
+      (time(11, 59, 59), 4),
+      (time(18), 10),
+      (time(23, 30), -1),
+    ])
+
+    from datetime import datetime, timedelta
+    date_chart = pygal.Line(x_label_rotation=20)
+    date_chart.x_labels = map(lambda d: d.strftime('%Y-%m-%d'), [
+     datetime(2013, 1, 2),
+     datetime(2013, 1, 12),
+     datetime(2013, 2, 2),
+     datetime(2013, 2, 22)])
+    date_chart.add("Посещаемость", [300, 412, 823, 672])
+
+
+    return render(req,'blog/statistics.html',{'graph':bc.render_data_uri(),'line_chart':line_chart.render_data_uri(),'time':dateline.render_data_uri(),'date':date_chart.render_data_uri()})

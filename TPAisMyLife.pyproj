@@ -58,7 +58,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="blog\static\css\blog.css" />
-    <Content Include="blog\templates\blog\contacts.html" />
     <Content Include="blog\templates\blog\base.html" />
     <Content Include="blog\templates\blog\new_post.html" />
     <Content Include="blog\templates\blog\new_user.html" />

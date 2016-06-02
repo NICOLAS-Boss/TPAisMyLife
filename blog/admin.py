@@ -4,7 +4,7 @@ from .models import *
 
 class CommentInline(admin.TabularInline):
     model = Comment
-    extra = 2
+    extra = 0
 
 class PostModelAdmin(admin.ModelAdmin):
     list_filter = ('author','created_date')

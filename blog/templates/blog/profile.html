@@ -1,36 +1,41 @@
 ﻿{%extends 'blog/profile_base.html'%}
 {%block nav%}
-    <img src="{{profile.photo.url}}" width="100%"/>
-    <h2>{{profile.name}} {{profile.surname}}</h2>
-    <h4>@{{user.get_username}}</h4>
+  <img src="{{profile.photo.url}}" width="100%"/>
+  <h2>{{profile.name}} {{profile.surname}}</h2>
+  <h4>@{{user.get_username}}</h4>
 {%endblock%}
 {%block content%}
 {%if is_my_profile%}
-    <form method="POST"  class="post-form form-horizontal" id="add_post">{% csrf_token %}
-        {{ new_post_form.title }}
-        {{ new_post_form.text }}
-        <button type="submit" class="save btn btn-default">Опубликовать</button>
-    </form>
+  <form method="POST"  class="post-form form-horizontal" id="add_post">{% csrf_token %}
+      {{ new_post_form.title }}
+      {{ new_post_form.text }}
+      <button type="submit" class="save btn btn-default">Опубликовать</button>
+  </form>
 {%endif%}
-    {%for post in post_list%}
+  {%for post in post_list%}
 
-        <a href="/post/{{post.id}}/"><h3>{{post.title}}</h3></a>
-        <p>{{post.text}}</p>
-        <p><a href="/post/{{post.id}}/">Коментарии({{post.comments.count}})</a></p>
-    {%endfor%}
+      <a href="/post/{{post.id}}/"><h3>{{post.title}}</h3></a>
+      <p>{{post.text}}</p>
+      <p><a href="/post/{{post.id}}/">Коментарии({{post.comments.count}})</a></p>
+
+  {% empty %}
+  <h1>
+    У вас ещё нет постов!!!
+  </h1>
+  {%endfor%}
 
 <ul class="pagination center-block">
-    {%for page in post_list.paginator.page_range%}
-        {%if page == post_list.number%}
-            <li class="active"><a href="/profile/{current_user.username}/{{page}}/">{{page}}</a></li>
-        {%else%}
-            <li><a href="/profile/{{current_user.username}}/{{page}}/">{{page}}</a></li>
-        {%endif%}
-    {%endfor%}
-    </ul>
+  {%for page in post_list.paginator.page_range%}
+      {%if page == post_list.number%}
+          <li class="active"><a href="/profile/{current_user.username}/{{page}}/">{{page}}</a></li>
+      {%else%}
+          <li><a href="/profile/{{current_user.username}}/{{page}}/">{{page}}</a></li>
+      {%endif%}
+  {%endfor%}
+  </ul>
 
-    <style>
-    body { padding-top: 50px; }
-    </style>
+  <style>
+  body { padding-top: 50px; }
+  </style>
 
 {%endblock%}

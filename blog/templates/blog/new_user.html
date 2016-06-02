@@ -4,18 +4,18 @@
 <div class="container body-content">
 <h2>{{ title }}</h2>
 <div class="row">
-    <div class="col-md-5">
-      <h1>Регистрация</h1>
-      <form method="POST" class="post-form form-horizontal" id="add_post">{% csrf_token %}
-        <section id="loginForm">
-          {{ form.as_p}}
-        </section>
-        <button type="submit" class="save btn btn-default">Зарегестрироватся</button>
-      </form>
-    </div>
-    <div class="col-md-4">
-        <section id="socialLoginForm"></section>
-    </div>
+  <div class="col-md-5">
+    <h1>Регистрация</h1>
+    <form method="POST" class="post-form form-horizontal" id="add_post">{% csrf_token %}
+      <section id="loginForm">
+        {{ form.as_p}}
+      </section>
+      <button type="submit" class="save btn btn-default">Зарегестрироватся</button>
+    </form>
+  </div>
+  <div class="col-md-4">
+      <section id="socialLoginForm"></section>
+  </div>
 </div>
 </div>
 <style>
